@@ -96,6 +96,7 @@ paraSelector.forEach(para => {
     para.addEventListener("mousemove", (event) => {
         event.target.style.transition = "all .25s"
         event.target.style.backgroundColor = "grey";
+        event.target.style.color = "white";
         event.target.style.padding = "5px";
         event.target.style.borderRadius = "10px";
     })
@@ -104,15 +105,32 @@ paraSelector.forEach(para => {
 paraSelector.forEach(para => {
     para.addEventListener("mouseleave", (event) => {
         event.target.style.backgroundColor = "initial";
+        event.target.style.color = "initial";
         event.target.style.padding = "initial";
         event.target.style.borderRadius = "initial";
     })
 })
 
+//10th event: alerts the user that fun bus price matches when they drag a trip title
+
+tripHeaders.forEach(trips => {
+    trips.setAttribute('draggable', true)
+})
+
+tripHeaders.forEach(trips => {
+    trips.addEventListener("dragend", (event) => {
+        alert("We Price Match!")
+    })
+})
 
 /// preventing event propagation
 
-// #1 - stopped nav bar links from auto scrolling the page to the top
+//copy event possibly https://developer.mozilla.org/en-US/docs/Web/API/Element/copy_event
+
+
+
+
+//prevent nav bar items from refreshing the page
 let navStop = document.querySelectorAll('nav a');
 
 navStop.forEach(links => {
@@ -120,5 +138,7 @@ navStop.forEach(links => {
         event.preventDefault()
     })
 })
+
+
 
 
