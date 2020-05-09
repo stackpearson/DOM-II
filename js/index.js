@@ -125,10 +125,21 @@ tripHeaders.forEach(trips => {
 
 /// preventing event propagation
 
-//copy event possibly https://developer.mozilla.org/en-US/docs/Web/API/Element/copy_event
+let mainNav = document.querySelector('.main-navigation');
+let anchorTags = document.querySelector('nav')
 
+//parent: changes entire nav bg to grey
+mainNav.addEventListener("click", (event) => {
+    mainNav.style.backgroundColor = "grey"
+    
+})
 
-
+//child: spins the nav links 360 deg. stopped propagation of the parent event listener so that you can spin the nav links without turning the bg of the nav bar grey. Make sure you're centered within the nav div that houses the links for proper function.
+anchorTags.addEventListener("click", (event) => {
+    event.target.style.transform = "rotate(360deg)"
+    event.target.style.transition = "all 2s"
+    event.stopPropagation()
+})
 
 //prevent nav bar items from refreshing the page
 let navStop = document.querySelectorAll('nav a');
