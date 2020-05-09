@@ -47,6 +47,28 @@ tripHeaders.forEach(titles => {
     })
 })
 
+//5th event: asking the user if they're sure they want to leave upon hitting the esc key
+
+window.addEventListener('keydown', (event) => {
+    if(event.keyCode === 27) {
+        alert("Are you sure you want to leave?")
+    }
+})
+
+//6th event: Zooms in on images using the scroll wheel
+
+imgSelector.forEach(img => {
+    img.addEventListener("wheel", (event) =>{
+        event.target.style.transform = "scale(1.2)"
+        event.target.style.transition = "all 2s"
+        // work on resetting this if you have time
+    })
+})
+
+
+
+//7th event: chagnes bg color of the body on page load from white to black, then back again
+
 
 /// preventing event propagation
 
