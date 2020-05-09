@@ -38,6 +38,14 @@ window.addEventListener('resize', (e) => {
     }
 })
 
+//4th event: displays an alert when you click on the trip titles at the bottom
+let tripHeaders = document.querySelectorAll('h4')
+
+tripHeaders.forEach(titles => {
+    titles.addEventListener('click', (event) => {
+        alert("Press OK if you really wanna take this trip");
+    })
+})
 
 
 /// preventing event propagation
