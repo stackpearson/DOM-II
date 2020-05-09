@@ -55,15 +55,15 @@ window.addEventListener('keydown', (event) => {
     }
 })
 
-//6th event: Zooms in on images using the scroll wheel
+//6th event: Zooms in on the bus image using the scroll wheel
+    let topImage = document.querySelector('img')
 
-imgSelector.forEach(img => {
-    img.addEventListener("wheel", (event) =>{
+    topImage.addEventListener("wheel", (event) => {
         event.target.style.transform = "scale(1.2)"
         event.target.style.transition = "all 2s"
-        // work on resetting this if you have time
+        // resets on duble click, but I'm not sure why
     })
-})
+
 
 
 
@@ -75,8 +75,8 @@ window.addEventListener('load', (event) => {
     
 })
 
-//8th event: anchor
-let anchorSelector = document.querySelectorAll('nav a')
+//8th event: styling nav buttons on focus
+let anchorSelector = document.querySelectorAll('nav a');
 
 anchorSelector.forEach(anchors => {
     anchors.addEventListener("focus", (event) => {
@@ -89,8 +89,25 @@ anchorSelector.forEach(anchors => {
 })
 
 
+//9th event: Adds focus to the bodies of text as they're scolled over with a pointer
+let paraSelector = document.querySelectorAll('p');
 
+paraSelector.forEach(para => {
+    para.addEventListener("mousemove", (event) => {
+        event.target.style.transition = "all .25s"
+        event.target.style.backgroundColor = "grey";
+        event.target.style.padding = "5px";
+        event.target.style.borderRadius = "10px";
+    })
+})
 
+paraSelector.forEach(para => {
+    para.addEventListener("mouseleave", (event) => {
+        event.target.style.backgroundColor = "initial";
+        event.target.style.padding = "initial";
+        event.target.style.borderRadius = "initial";
+    })
+})
 
 
 /// preventing event propagation
