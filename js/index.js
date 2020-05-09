@@ -67,12 +67,25 @@ imgSelector.forEach(img => {
 
 
 
-//7th event: chagnes bg color of the body on page load from white to black, then back again
+//7th event: removes a class on load that 
 let fullBgSelector = document.querySelector('body');
 
 window.addEventListener('load', (event) => {
     fullBgSelector.classList.remove("bgFade");
     
+})
+
+//8th event: anchor
+let anchorSelector = document.querySelectorAll('nav a')
+
+anchorSelector.forEach(anchors => {
+    anchors.addEventListener("focus", (event) => {
+        event.target.style.backgroundColor = "red"
+        event.target.style.borderRadius = "7px"
+        event.target.style.padding = "5px"
+        event.target.style.transition = "all 2s"
+    })
+    //figure out how to reset this if you have time
 })
 
 
