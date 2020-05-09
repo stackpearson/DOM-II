@@ -68,6 +68,16 @@ imgSelector.forEach(img => {
 
 
 //7th event: chagnes bg color of the body on page load from white to black, then back again
+let fullBgSelector = document.querySelector('body');
+
+window.addEventListener('load', (event) => {
+    fullBgSelector.classList.remove("bgFade");
+    
+})
+
+
+
+
 
 
 /// preventing event propagation
