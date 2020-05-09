@@ -27,7 +27,16 @@ imgSelector.forEach(img => {
     })
 })
 
+//3rd event: removes the main bus image for screen sizes under 500px wide
+let busSelector = document.querySelector('img')
 
+window.addEventListener('resize', (e) => {
+    if (event.target.innerWidth < 500) {
+        busSelector.style.display = 'none';
+    } else {
+        busSelector.style.display = 'initial';
+    }
+})
 
 
 
